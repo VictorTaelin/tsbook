@@ -7,7 +7,9 @@ import { List } from "./_";
 export function append<A>(xs: List<A>, ys: List<A>): List<A> {
   switch (xs.$) {
     case "Cons": {
-      return { $: "Cons", head: xs.head, tail: append(xs.tail, ys) };
+      var head = xs.head;
+      var tail = append(xs.tail, ys);
+      return { $: "Cons", head, tail };
     }
     case "Nil": {
       return ys;

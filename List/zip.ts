@@ -9,7 +9,7 @@ export function zip<A, B>(xs: List<A>, ys: List<B>): List<[A, B]> {
     case "Cons": {
       switch (ys.$) {
         case "Cons": {
-          var head: [A, B] = [xs.head, ys.head];
+          var head = [xs.head, ys.head] as [A,B];
           var tail = zip(xs.tail, ys.tail);
           return { $: "Cons", head, tail };
         }

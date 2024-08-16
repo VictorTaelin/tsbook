@@ -7,12 +7,9 @@ import { List } from "./_";
 export function filter<A>(xs: List<A>, pred: (a: A) => boolean): List<A> {
   switch (xs.$) {
     case "Cons": {
+      var head = xs.head;
       var tail = filter(xs.tail, pred);
-      if (pred(xs.head)) {
-        return { $: "Cons", head: xs.head, tail };
-      } else {
-        return tail;
-      }
+      return pred(xs.head) ? { $: "Cons", head, tail } : tail;
     }
     case "Nil": {
       return { $: "Nil" };
