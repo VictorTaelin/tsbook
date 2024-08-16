@@ -1,0 +1,8 @@
+# Node modules
+node_modules/
+
+# Hidden files and directories
+.*
+
+# Exceptions: keep .gitignore
+!.gitignore
